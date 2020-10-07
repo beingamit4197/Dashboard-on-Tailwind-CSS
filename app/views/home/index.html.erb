@@ -9,6 +9,13 @@
     <a class="bg-white inline-block py-2 px-4 text-blue-500 hover:text-blue-800 font-semibold" href="#">Tab</a>
   </li>
   <li class="mr-1">
+  <% if user_signed_in? %>
+    <li class="bg-white float-right object-right inline-block py-2 px-4 text-blue-500 hover:text-blue-800 font-semibold">
+      <%= link_to('Logout', destroy_user_session_path, method: :delete, class: "nav-link") %>        
+      </li>
+  <% else %>
     <a class="bg-white float-right object-right inline-block py-2 px-4 text-blue-500 hover:text-blue-800 font-semibold" href="<%= new_user_session_path %>">Log In</a>
-  </li>
+    <a class="bg-white float-right object-right inline-block py-2 px-4 text-blue-500 hover:text-blue-800 font-semibold" href="<%= new_user_registration_path %>">Sign Up</a>
+  <% end %>
+  </li> 
 </ul>
